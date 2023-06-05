@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>TV Shows</title>
+</head>
+
+<body>
+    <div class="container" style="margin: 30px 500px; ">
+
+        <h3>
+            Edit Show
+        </h3>
+        <div style="margin-bottom: 30px;">
+            <a href="/shows" style="margin-left: 320px; margin-right: 90px;">TV Shows</a>
+            <a href="/logout">logout</a>
+        </div>
+
+        {%for message in get_flashed_messages(category_filter=["show"])%}
+        <p class="text-danger">{{message}}</p>
+        {%endfor%}
+
+        <form action="/shows/edit" method="post" class="row text-center ">
+            <div class="col-6">
+                <div class="form-group">
+                    <label style="font-weight: bold;">Title: </label>
+                    <input type="text" class="form-control" name="title" value="{{show.title}}">
+                </div>
+                <div class="form-group">
+                    <label style="font-weight: bold;">Network: </label>
+                    <input type="text" class="form-control" name="network" value="{{show.network}}">
+                </div>
+                <div class="form-group">
+                    <label style="font-weight: bold;">Release Date: </label>
+                    <input type="date" class="form-control" name="release_date" value="{{show.release_date}}">
+                </div>
+                <div class="form-group">
+                    <label style="font-weight: bold;">Description </label>
+                    
+                </div>
+                <div class="form-group">
+                    
+                    <textarea name="description" cols="70" rows="4">{{show.description}}</textarea>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary">Update</button>
+                </div>
+            </div>
+        </form>
+
+
+
+    </div>
+</body>
+
+</html>
